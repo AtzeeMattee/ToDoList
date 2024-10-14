@@ -17,7 +17,7 @@ const buildRegistrationLink = (id, token) => {
   return `http://localhost:8000/user/${id}/confirm/${encodeURIComponent(token)}`
 }
 const sendRegistrationMail = async (email, link) => {
-	const senderAddress = 'augusto.ciuccatosti@gmail.com';
+	const senderAddress = 'atzee.matte@gmail.com';
 	const subject = 'todolist registration';
 	const body = `Open this link to complete registration ${link}`;
 	const transport = {
