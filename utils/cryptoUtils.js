@@ -30,6 +30,18 @@ class CryptoUtils {
     }
   }
 }
+/*
+verifyJWT = (token) => {
+  try {
+    return jwt.verify(token, publicKey, {
+      ignoreExpiration: false,
+      algorithm: ['RS256'],
+    });
+  } catch (err) {
+    throw new UnauthorizedException('Invalid JWT');
+  }
+}
+  */
  
 const sha256 = (value, salt) => {
   return crypto.createHmac('sha256', salt).update(value).digest('hex');
