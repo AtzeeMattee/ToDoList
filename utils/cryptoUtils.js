@@ -1,12 +1,12 @@
 import cryptoRandomString from 'crypto-random-string'
 import crypto from 'crypto'
 import jwt from 'jsonwebtoken'
-import {privateKey, publicKey} from '../const/const.js';
-//import UnauthorizedException from '../exception/UnathorizedException.js';
+import { privateKey, publicKey } from '../const/const.js';
+import UnauthorizedException from '../exception/UnauthorizedException.js';
 
 class CryptoUtils {
   generateUniqueCode(length, type) {
-    return cryptoRandomString({length: length, type: type || 'base64'});
+    return cryptoRandomString({ length: length, type: type || 'base64' });
   }
   hashPassword(password) {
     let salt = this.generateUniqueCode(10);
@@ -23,26 +23,27 @@ class CryptoUtils {
     return encodeURIComponent(code)
   }
 
-  generateTokens (user) {
+  generateTokens(user) {
     return {
       accessToken: generateToken(user, 86400),//1 day
       refreshToken: generateToken(user, 7776000),// 3months
     }
   }
-}
-/*
-verifyJWT = (token) => {
-  try {
-    return jwt.verify(token, publicKey, {
-      ignoreExpiration: false,
-      algorithm: ['RS256'],
-    });
-  } catch (err) {
-    throw new UnauthorizedException('Invalid JWT');
+
+
+  verifyJWT = (token) => {
+    try {
+      return jwt.verify(token, publicKey, {
+        ignoreExpiration: false,
+        algorithm: ['RS256'],
+      });
+    } catch (err) {
+      throw new UnauthorizedException('Invalid JWT');
+    }
   }
 }
-  */
- 
+
+
 const sha256 = (value, salt) => {
   return crypto.createHmac('sha256', salt).update(value).digest('hex');
 };
