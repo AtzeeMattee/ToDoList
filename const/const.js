@@ -90,4 +90,5 @@ export {
   userStatus,
   privateKey,
   publicKey,
+  mailConfig,
 }

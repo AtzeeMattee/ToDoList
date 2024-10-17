@@ -5,6 +5,7 @@ import MongoInternalException from '../exception/MongoInternalException.js';
 import NotFoundException from '../exception/NotFoundException.js';
 import UserAlreadyExistsException from '../exception/UserAlreadyExistException.js';
 import { userStatus } from '../const/const.js';
+
 const userSchema = new Schema({
     email: {type: String, index: { unique: true }},
     displayName: String,
@@ -26,9 +27,6 @@ const add = async (content) => {
   try {
     const res = await new userModel(content).save();
     const out = res.toJSON({versionKey:false})
-    delete out.password;
-    delete out.salt;
-    delete out.registrationToken;
     return out
   } catch (e) {
     if(e.message.indexOf('E11000 duplicate key error') > -1) {

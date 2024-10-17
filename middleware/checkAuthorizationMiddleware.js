@@ -1,4 +1,5 @@
 import jwtUtils from '../utils/cryptoUtils.js'
+
 export default async (req, res, next) => {
   const authorizationHeader = req.headers.authorization;
   if (authorizationHeader) {

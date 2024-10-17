@@ -20,10 +20,7 @@ const removeActivity = async (id) => {
 	return activityRepo.removeActivity(id)
   }
 
-  
-
-
-export {
+  export {
  	retrieveActivity,
 	addActivity,
 	updateActivity,

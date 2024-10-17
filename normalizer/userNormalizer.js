@@ -1,4 +1,4 @@
-export default (user) => {
+ export default (user) => {
     const out = {
       email: user.email,
       displayName: user.displayName,

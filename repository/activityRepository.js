@@ -8,6 +8,7 @@ const activitySchema = new Schema({
     description: String,
     dueDate: { type: Date , default: Date.now },
     status: { type: String, default: status.open },
+    ownerId: {type: Schema.Types.ObjectId, default: null},
   },
   {
     timestamps: {

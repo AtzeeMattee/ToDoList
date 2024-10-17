@@ -1,6 +1,7 @@
 import userRepo from '../repository/userRepository.js'
 import cryptoUtils from '../utils/cryptoUtils.js'
 import mailer from 'nodemailer';
+import {mailConfig} from '../const/const.js';
 
 const register = async (content) => {
   const  {password, salt} = cryptoUtils.hashPassword(content.password)
