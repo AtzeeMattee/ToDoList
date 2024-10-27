@@ -17,3 +17,4 @@ connectionToDb().then(() => {
 	console.log('Server not started' + error)
 })
 
+export default app;
