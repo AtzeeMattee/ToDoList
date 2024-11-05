@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "set NODE_ENV=test&& mocha 'test/**/*.js' --recursive -c --t 50000 --exit"
+    "test": "NODE_ENV=test mocha 'test/**/*.js' --recursive -c --t 50000 --exit"
   },
   "keywords": [],
   "author": "",
@@ -21,9 +21,10 @@
     "nodemailer": "^6.9.15"
   },
   "devDependencies": {
+    "c8": "^10.1.2",
     "chai": "^5.1.1",
     "chai-http": "^5.1.1",
-    "mocha": "^10.7.3",
+    "mocha": "^10.8.2",
     "mongodb-memory-server": "^10.1.2",
     "sinon": "^19.0.2"
   }

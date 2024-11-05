@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 const dbName = 'todolist'
-const user='augustociuccatosti'
+const user='atzeematte'
 
-const password='pippocalogero'
+const password='DeveloperCa'
 
 const connectionUrl = `mongodb+srv://
 ${user}:${password}
-@clustertodolist.lc6tm.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=ClusterToDoList'`
+@clustertodolist.rokgp.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=ClusterToDoList'`
 
 const connect = async () => {
   try {

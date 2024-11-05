@@ -26,7 +26,7 @@ import loginController from './user/loginController.js';
  * MIDDLEWARES
  */
 import checkAuthorizationMiddleware from '../middleware/checkAuthorizationMiddleware.js'
-//import flushAndSetActivityStatusCompleted from '../middleware/flushAndSetActivityStatusCompleted.js'
+
 
 const setup = (app) => {
     app.get('/activity/:id',checkAuthorizationMiddleware, retrieveActivityController);
