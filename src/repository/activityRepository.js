@@ -2,6 +2,7 @@ import { activityStatus } from '../const/const.js';
 import ForbiddenException from '../exception/ForbiddenException.js';
 import NotFoundException from '../exception/NotFoundException.js';
 import { activityModel } from '../schema/activitySchema.js';
+
 const addActivity = async (data) => {
   data.ownerId = data.userId;
   const result = await new activityModel(data).save()
@@ -30,9 +31,18 @@ const updateActivity = async (id, params) => {
     {upsert:false, new:true});
   return res?.toJSON({versionKey:false}) || res;
 }
+
 const retrieveActivity = async (id) => {
   const res = await activityModel.findById(id)
-  return res?.toJSON({versionKey:false}) || res;
+  return res?.map (item => item.toJSON({versionKey:false}));
+}
+
+const listActivities = async (userId) => {
+  //const res = await activityModel.findAll({ownerId: userId});
+  const res = await activityModel.find({ownerId: userId});
+  //console.log(res?.map(item => item.toJSON({versionKey:false})))
+  //return activity?.toJSON({versionKey:false}) || null
+  return res?.map(item => item.toJSON({versionKey:false}));
 }
 
 const _changeStatus = async (id, userId, status) => {
@@ -82,5 +92,6 @@ export default {
   completedActivity,
   uncompletedActivity,
   archiveActivity,
+  listActivities,
 
 }

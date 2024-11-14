@@ -5,6 +5,10 @@ const retrieveActivity = async (id) => {
 	
   }
 
+  const listActivities = async (userId) => {
+	return await activityRepo.listActivities(userId)
+}
+
 const addActivity = async (data) => {
 		const content = data  
     	content['status'] = 'open';
@@ -45,4 +49,5 @@ export {
 	completeActivity,
 	uncompleteActivity,
 	archiveActivity,
+	listActivities,
 }

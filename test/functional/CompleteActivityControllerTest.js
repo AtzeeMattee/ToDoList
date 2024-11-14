@@ -12,7 +12,9 @@ chai.use(chaiHttp);
 let user;
 let token;
 let activity;
-
+const buildPath = (value) => {
+    return '/activity/%%id%%/complete'.replace('%%id%%', value);
+}
 describe('----- Complete Activity Controller Tests -----', () => {
     beforeEach(async () => {
         user = await userFixtures.addUserInDb();
@@ -75,7 +77,7 @@ describe('----- Complete Activity Controller Tests -----', () => {
     describe('/PATCH Complete Activity Success', () => {
         it('it should return 200 and update the Status field to completed', async () => {
             const res = await request.execute(app)
-            .patch(`/activity/${activity._id}/complete`)
+            .patch(buildPath(activity._id))
             .set('Authorization', 'Bearer ' + token.accessToken)
             .set('Content-type', 'application/json')
             .send();

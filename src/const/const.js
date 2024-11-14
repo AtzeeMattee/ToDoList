@@ -77,7 +77,7 @@ const publicKey = '-----BEGIN PUBLIC KEY-----\n'+
 '-----END PUBLIC KEY-----';
 
 const mailConfig = {
-  senderAddress: 'augusto.ciuccatosti@gmail.com',
+  senderAddress: 'atzee.matte@gmail.com',
   smtpPassword: '****',
   subject: 'todolist registration',
   host: 'smtp.gmail.com',

@@ -16,6 +16,7 @@ import updateActivityController from './activity/updateActivityController.js'
 import completeActivityController from './activity/completeActivityController.js'
 import uncompleteActivityController from './activity/uncompleteActivityController.js'
 import archiveActivityController from './activity/archiveActivityController.js'
+import listActivityController from './activity/listActivityController.js'
 /**
  * USER CONTROLLERS
 */
@@ -29,6 +30,7 @@ import checkAuthorizationMiddleware from '../middleware/checkAuthorizationMiddle
 
 
 const setup = (app) => {
+    app.get('/activity/',checkAuthorizationMiddleware, listActivityController);
     app.get('/activity/:id',checkAuthorizationMiddleware, retrieveActivityController);
     app.post('/activity',checkAuthorizationMiddleware, createActivityValidator, addActivityController);
     app.patch('/activity/:id',checkAuthorizationMiddleware, updateActivityValidator, updateActivityController);
